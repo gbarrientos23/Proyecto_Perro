@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Vida_perro : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int vidaPlayer;
+    public Slider vidaVisual;
+
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+
+        vidaVisual.GetComponent<Slider>().value = vidaPlayer;
+
+        if(vidaPlayer <=0)
+        {
+            Debug.Log("Game Over");
+        }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movimiento_nuevo : MonoBehaviour
 {
-    public float velocidadMovimiento = 5.0f;
+    public float velocidadMovimiento = 10.0f;
     public float velocidadRotacion = 200.0f;
     private Animator anim;
     public float x,y;
@@ -23,5 +23,8 @@ public class Movimiento_nuevo : MonoBehaviour
 
         transform.Rotate(0, x * Time.deltaTime * velocidadRotacion, 0);
         transform.Translate(0,0, y* Time.deltaTime * velocidadMovimiento);
+
+        anim.SetFloat("VelX", x);
+        anim.SetFloat("VelY", y);
     }
 }
