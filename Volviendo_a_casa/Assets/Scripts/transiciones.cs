@@ -33,4 +33,17 @@ public class transiciones : MonoBehaviour
             anim.SetBool("semueve", false);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Terreno_lento")
+        {
+            velocidadMovimiento = 5.0f;
+        }
+
+        if(other.tag != "Terreno_lento")
+        {
+            velocidadMovimiento = 10.0f;
+        }
+    }
 }
