@@ -8,14 +8,11 @@ public class Vida_perro : MonoBehaviour
     public int vidaPlayer;
     public Slider vidaVisual;
 
-
-    // Update is called once per frame
     private void Update()
     {
-
         vidaVisual.GetComponent<Slider>().value = vidaPlayer;
 
-        if(vidaPlayer <=0)
+        if (vidaPlayer <= 0)
         {
             Debug.Log("Game Over");
         }

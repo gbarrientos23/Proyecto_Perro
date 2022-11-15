@@ -8,13 +8,15 @@ public class Danio_auto : MonoBehaviour
     public GameObject Player;
 
     private void OnTriggerEnter(Collider other)
-
     {
-        if(other.tag=="Player")
+        if(other.tag == "Player")
         {
-            Player.GetComponent<Vida_perro>().vidaPlayer -=  damage;
+            Player.GetComponent<Vida_perro>().vidaPlayer -= damage;
+        }
+
+        if (other.tag == "Enemigo")
+        {
+            Debug.Log("Esto es un enemigo");
         }
     }
-
-
 }
