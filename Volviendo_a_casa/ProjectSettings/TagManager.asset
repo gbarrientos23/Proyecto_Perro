@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemigo
+  - Terreno_lento
   layers:
   - Default
   - TransparentFX
