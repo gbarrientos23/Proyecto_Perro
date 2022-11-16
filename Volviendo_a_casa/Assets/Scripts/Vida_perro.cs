@@ -16,5 +16,14 @@ public class Vida_perro : MonoBehaviour
         {
             Debug.Log("Game Over");
         }
+        if (vidaPlayer <= 0)
+        {
+            Time.timeScale = 0f;
+            Respawn.gameOverManager.CallGameOver();
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
     }
 }

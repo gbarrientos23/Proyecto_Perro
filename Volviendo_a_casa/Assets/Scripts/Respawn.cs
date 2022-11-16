@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Respawn : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-    [SerializeField] Transform spawnPoint;
-    [SerializeField] float spawnValue;
+    public GameObject GameOver;
+    public static Respawn gameOverManager;
+
+    void Start()
+    {
+        gameOverManager = this;
+    }
 
     void Update()
     {
-        if(player.transform.position.y < -spawnValue)
-        {
-            RespawnPoint();
-        }
+      
     }
-
-    void RespawnPoint()
+    public void CallGameOver()
     {
-        transform.position = spawnPoint.position;
+        GameOver.SetActive(true);
     }
 }

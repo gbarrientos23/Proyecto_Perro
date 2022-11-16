@@ -12,6 +12,7 @@ public class Danio_auto : MonoBehaviour
         if(other.tag == "Player")
         {
             Player.GetComponent<Vida_perro>().vidaPlayer -= damage;
+
         }
 
         if (other.tag == "Enemigo")
