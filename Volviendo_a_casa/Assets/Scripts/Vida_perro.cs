@@ -7,6 +7,12 @@ public class Vida_perro : MonoBehaviour
 {
     public int vidaPlayer;
     public Slider vidaVisual;
+    private Animator anim;
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -18,11 +24,13 @@ public class Vida_perro : MonoBehaviour
         }
         if (vidaPlayer <= 0)
         {
-            Time.timeScale = 0f;
+            anim.SetBool("muerto", true);
+            Time.timeScale = 1f;
             Respawn.gameOverManager.CallGameOver();
         }
         else
         {
+            anim.SetBool("muerto", false);
             Time.timeScale = 1f;
         }
     }
