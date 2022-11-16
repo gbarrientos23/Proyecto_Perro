@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class transiciones : MonoBehaviour
 {
-    public float velocidadMovimiento = 10.0f;
-    public float velocidadRotacion = 200.0f;
+    public float velocidadMovimiento = 1.0f;
+    public float velocidadRotacion = 10.0f;
     private Animator anim;
     public float x, y;
 
@@ -24,21 +24,63 @@ public class transiciones : MonoBehaviour
         transform.Rotate(0, x * Time.deltaTime * velocidadRotacion, 0);
         transform.Translate(0, 0, y * Time.deltaTime * velocidadMovimiento);
 
-        if (Input.GetKeyDown("up") || Input.GetKeyDown("down"))
+        if (Input.GetKeyDown("up"))
         {
-            anim.SetBool("semueve", true);
+            anim.SetBool("adelante", true);
         }
-        if (!Input.GetKeyDown("up") && !Input.GetKeyDown("down"))
+
+        if (Input.GetKeyDown("down"))
         {
-            anim.SetBool("semueve", false);
+            anim.SetBool("atras", true);
         }
+
+        if (Input.GetKeyUp("up"))
+        {
+            anim.SetBool("adelante", false);
+        }
+
+        if (Input.GetKeyUp("down"))
+        {
+            anim.SetBool("atras", false);
+        }
+
+        if (Input.GetKeyDown("space"))
+        {
+            anim.SetBool("saltar", true);
+        }
+
+        if (Input.GetKeyUp("space"))
+        {
+            anim.SetBool("saltar", false);
+        }
+
+        if (Input.GetKeyDown("right"))
+        {
+            anim.SetBool("derecha", true);
+        }
+
+        if (Input.GetKeyUp("right"))
+        {
+            anim.SetBool("derecha", false);
+        }
+
+        if (Input.GetKeyDown("left"))
+        {
+            anim.SetBool("izquierda", true);
+        }
+
+        if (Input.GetKeyUp("left"))
+        {
+            anim.SetBool("izquierda", false);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Terreno_lento")
         {
-            velocidadMovimiento = 5.0f;
+            velocidadMovimiento = 2.0f;
         }
 
         if(other.tag != "Terreno_lento")

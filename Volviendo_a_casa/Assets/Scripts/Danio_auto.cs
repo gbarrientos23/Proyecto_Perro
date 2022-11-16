@@ -11,6 +11,8 @@ public class Danio_auto : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            Debug.Log("Esta es la vida del zorro");
+            Debug.Log(Player.GetComponent<Vida_perro>().vidaPlayer);
             Player.GetComponent<Vida_perro>().vidaPlayer -= damage;
 
         }
